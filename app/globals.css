@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --bg: #0A0F1E;
+  --surface: rgba(12, 18, 42, 0.85);
+  --surface-strong: rgba(10, 14, 30, 0.96);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+  --muted: #A8B7D3;
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(0, 201, 255, 0.08), transparent 25%), linear-gradient(180deg, #04122e 0%, #070b1f 42%, #0a0f1e 100%);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+section {
+  position: relative;
+}
+
+::selection {
+  background: rgba(232, 41, 43, 0.25);
+}
+
+.print-friendly * {
+  background: transparent !important;
+  color: #111827 !important;
+  box-shadow: none !important;
+}
+
+.print-friendly body {
+  background: #fff !important;
+}
+
+.print-friendly .no-print {
+  display: none !important;
+}
+
+.print-friendly .section-card {
+  border: 1px solid #ddd !important;
+}
+
+.gradient-border {
+  background: linear-gradient(135deg, #e8292b, #00c9ff, #003087);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-panel {
+  background: rgba(10, 14, 30, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+
+.section-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(11, 18, 34, 0.82);
+}
+
+@media print {
+  html, body {
+    color: #111827;
+    background: #ffffff;
+  }
+  body {
+    min-width: auto;
+  }
+  .no-print,
+  .navbar,
+  .checkpoint {
+    display: none !important;
+  }
+  section {
+    page-break-inside: avoid;
+  }
+}
